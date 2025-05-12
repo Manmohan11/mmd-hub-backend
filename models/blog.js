@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { BLOG_STATUS } from '../utils/enum.js';
 
 const blogSchema = new mongoose.Schema(
   {
@@ -35,8 +36,9 @@ const blogSchema = new mongoose.Schema(
     ],
     status: {
       type: String,
-      enum: ['draft', 'pending', 'published', 'rejected'],
-      default: 'pending',
+      enum: Object.values(BLOG_STATUS),
+      default: BLOG_STATUS.PENDING,
+      required: [true, 'Blog status is required'],
     },
     views: {
       type: Number,

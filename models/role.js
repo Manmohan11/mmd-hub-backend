@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import {ACTIONS} from '../utils/enum.js';
+import {ROLES} from '../utils/enum.js';
 
 const roleSchema = new mongoose.Schema(
   {
@@ -7,12 +9,11 @@ const roleSchema = new mongoose.Schema(
       required: [true, 'Role name is required'],
       unique: true,
       trim: true,
+      enum: Object.keys(ROLES) 
     },
     permissions: [{
       type: String,
-      enum: ['create_blog', 'edit_blog', 'delete_blog', 'review_blog', 
-             'create_comment', 'edit_comment', 'delete_comment',
-             'manage_users', 'manage_roles', 'flag_content'],
+      enum: Object.values(ACTIONS)
     }],
     description: {
       type: String,

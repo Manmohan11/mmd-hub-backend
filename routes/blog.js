@@ -5,7 +5,8 @@ import {
   getBlogById,
   updateBlog,
   deleteBlog,
-  reviewBlog
+  reviewBlog,
+  updateBlogStatus
 } from '../controllers/blog.js';
 import {
   createComment,
@@ -34,7 +35,7 @@ router.route('/')
 router.route('/:id')
   .get(getBlogById)
   .put(updateBlog)
-  .delete(deleteBlog);
+  .delete(deleteBlog).patch(updateBlogStatus);
 
 // Review a blog
 router.route('/:id/review')
