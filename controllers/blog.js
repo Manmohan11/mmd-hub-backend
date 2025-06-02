@@ -53,10 +53,10 @@ export const getBlogs = async (req, res) => {
       query.tags = req.query.tag;
     }
 
+    query.status = BLOG_STATUS.PUBLISHED;
     // Get total count for pagination
     const total = await Blog.countDocuments(query);
-
-    console.log(query);
+    
 
     // Get blogs with pagination
     const blogs = await Blog.find(query)

@@ -24,10 +24,6 @@ const wallpaperSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    resolution: {
-      type: String,
-      required: [true, 'Wallpaper resolution is required'],
-    },
     downloads: {
       type: Number,
       default: 0,

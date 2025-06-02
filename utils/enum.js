@@ -14,7 +14,7 @@ const ROLES = Object.freeze({
   MODERATOR: "moderator", // can manage all comments and blogs / wallpapers
 
   CONTRIBUTOR: "contributor", // can create blogs
-
+  //-----------------------------------------------------------------------------------------
   MEMBER: "member", // can read and comment on blogs/wallpapers also can download wallpapers
 
   GUEST: "guest", // can read blogs

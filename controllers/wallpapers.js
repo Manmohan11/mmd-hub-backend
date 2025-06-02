@@ -110,12 +110,16 @@ export const getTopWallpapersByDownloads = async (req, res) => {
 // @access  Public
 export const likeWallpaper = async (req, res) => {
   try {
+    console.log("Like wallpaper", req.params.id);
     const wallpaper = await Wallpaper.findById(req.params.id);
     
     if (!wallpaper) {
       return res.status(404).json({ message: 'Wallpaper not found' });
     }
-    
+    // if(req.user && wallpaper.likes.includes(req.user._id)) {
+    //   walllpaper.likes = wallpaper.likes.filter(userId => userId !== req.user._id);
+    //   await wallpaper.save();
+    // }
     wallpaper.likes += 1;
     await wallpaper.save();
     
